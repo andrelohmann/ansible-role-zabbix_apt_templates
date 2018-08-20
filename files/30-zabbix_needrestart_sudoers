@@ -1,0 +1,2 @@
+# allow zabbix to check for needrestart in batch listing mode
+zabbix             ALL = NOPASSWD: /usr/sbin/needrestart -b -r l *

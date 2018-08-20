@@ -1,0 +1,167 @@
+{
+    "zabbix_export": {
+        "date": "2018-08-20T14:41:59Z",
+        "groups": [
+            {
+                "name": "Templates"
+            }
+        ],
+        "templates": [
+            {
+                "applications": [
+                    {
+                        "name": "APT"
+                    }
+                ],
+                "description": "",
+                "discovery_rules": [],
+                "groups": [
+                    {
+                        "name": "Templates"
+                    }
+                ],
+                "httptests": [],
+                "items": [
+                    {
+                        "allowed_hosts": "",
+                        "applications": [
+                            {
+                                "name": "APT"
+                            }
+                        ],
+                        "authtype": "0",
+                        "delay": "900",
+                        "description": "",
+                        "history": "90d",
+                        "inventory_link": "0",
+                        "ipmi_sensor": "",
+                        "jmx_endpoint": "",
+                        "key": "apt.security",
+                        "logtimefmt": "",
+                        "master_item": [],
+                        "name": "Security Updates",
+                        "params": "",
+                        "password": "",
+                        "port": "",
+                        "preprocessing": [],
+                        "privatekey": "",
+                        "publickey": "",
+                        "snmp_community": "",
+                        "snmp_oid": "",
+                        "snmpv3_authpassphrase": "",
+                        "snmpv3_authprotocol": "0",
+                        "snmpv3_contextname": "",
+                        "snmpv3_privpassphrase": "",
+                        "snmpv3_privprotocol": "0",
+                        "snmpv3_securitylevel": "0",
+                        "snmpv3_securityname": "",
+                        "status": "0",
+                        "trends": "365d",
+                        "type": "0",
+                        "units": "",
+                        "username": "",
+                        "value_type": "3",
+                        "valuemap": []
+                    },
+                    {
+                        "allowed_hosts": "",
+                        "applications": [
+                            {
+                                "name": "APT"
+                            }
+                        ],
+                        "authtype": "0",
+                        "delay": "900",
+                        "description": "",
+                        "history": "90d",
+                        "inventory_link": "0",
+                        "ipmi_sensor": "",
+                        "jmx_endpoint": "",
+                        "key": "apt.updates",
+                        "logtimefmt": "",
+                        "master_item": [],
+                        "name": "Non-Critical Updates",
+                        "params": "",
+                        "password": "",
+                        "port": "",
+                        "preprocessing": [],
+                        "privatekey": "",
+                        "publickey": "",
+                        "snmp_community": "",
+                        "snmp_oid": "",
+                        "snmpv3_authpassphrase": "",
+                        "snmpv3_authprotocol": "0",
+                        "snmpv3_contextname": "",
+                        "snmpv3_privpassphrase": "",
+                        "snmpv3_privprotocol": "0",
+                        "snmpv3_securitylevel": "0",
+                        "snmpv3_securityname": "",
+                        "status": "0",
+                        "trends": "365d",
+                        "type": "0",
+                        "units": "",
+                        "username": "",
+                        "value_type": "3",
+                        "valuemap": []
+                    }
+                ],
+                "macros": [],
+                "name": "Template App APT Updates",
+                "screens": [],
+                "template": "Template App APT Updates",
+                "templates": []
+            }
+        ],
+        "triggers": [
+            {
+                "correlation_mode": "0",
+                "correlation_tag": "",
+                "dependencies": [],
+                "description": "",
+                "expression": "{Template App APT Updates:apt.security.last()}>0 and {Template App APT Updates:apt.updates.last()}>0",
+                "manual_close": "1",
+                "name": "{ITEM.LASTVALUE1} security and {ITEM.LASTVALUE2} regular updates on {HOST.NAME}",
+                "priority": "2",
+                "recovery_expression": "",
+                "recovery_mode": "0",
+                "status": "0",
+                "tags": [],
+                "type": "0",
+                "url": ""
+            },
+            {
+                "correlation_mode": "0",
+                "correlation_tag": "",
+                "dependencies": [],
+                "description": "",
+                "expression": "{Template App APT Updates:apt.updates.last()}>0 and {Template App APT Updates:apt.security.last()}=0",
+                "manual_close": "1",
+                "name": "{ITEM.LASTVALUE} regular updates on {HOST.NAME}",
+                "priority": "1",
+                "recovery_expression": "",
+                "recovery_mode": "0",
+                "status": "0",
+                "tags": [],
+                "type": "0",
+                "url": ""
+            },
+            {
+                "correlation_mode": "0",
+                "correlation_tag": "",
+                "dependencies": [],
+                "description": "",
+                "expression": "{Template App APT Updates:apt.security.last()}>0 and {Template App APT Updates:apt.updates.last()}=0",
+                "manual_close": "1",
+                "name": "{ITEM.LASTVALUE} security updates on {HOST.NAME}",
+                "priority": "2",
+                "recovery_expression": "",
+                "recovery_mode": "0",
+                "status": "0",
+                "tags": [],
+                "type": "0",
+                "url": ""
+            }
+        ],
+        "version": "3.4"
+    }
+}

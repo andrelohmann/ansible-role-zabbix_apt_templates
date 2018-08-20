@@ -1,0 +1,48 @@
+---
+
+- name: Installing needrestart
+  apt:
+    name: "{{ item }}"
+    state: latest
+    dpkg_options: 'force-confnew,force-confdef'
+    autoclean: yes
+    autoremove: yes
+    update_cache: yes
+    cache_valid_time: 0
+  with_items:
+  - needrestart
+
+- name: Create a new sudoers file into place, after passing validation with visudo
+  copy:
+    src: 30-zabbix_needrestart_sudoers
+    dest: /etc/sudoers.d/30-zabbix_needrestart_sudoers
+    validate: /usr/sbin/visudo -cf %s
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Set periodic apt-update
+  copy:
+    src: 02periodic
+    dest: /etc/apt/apt.conf.d/02periodic
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Create zabbix_agentd.d/apt.conf
+  copy:
+    src: apt.conf
+    dest: /etc/zabbix/zabbix_agentd.d/apt.conf
+    owner: root
+    group: root
+    mode: 0440
+
+- name: Create zabbix_agentd.d/needrestart.conf
+  copy:
+    src: needrestart.conf
+    dest: /etc/zabbix/zabbix_agentd.d/apt.conf
+    owner: root
+    group: root
+    mode: 0440
+
+...

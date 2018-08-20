@@ -1,0 +1,44 @@
+---
+
+# Export template json definition
+#- name: Dump Zabbix template
+#  local_action:
+#    module: zabbix_template
+#    server_url: "{{ zabbix_url }}"
+#    login_user: "{{ zabbix_api_user }}"
+#    login_password: "{{ zabbix_api_pass }}"
+#    template_name: Template App Needrestart
+#    state: dump
+#  register: _template_dump
+
+#- name: show template dump
+#  debug:
+#    msg: "{{ _template_dump }}"
+
+# Create a new template from a json config definition
+- name: Import Zabbix json template configuration
+  local_action:
+    module: zabbix_template
+    server_url: "{{ zabbix_url }}"
+    login_user: "{{ zabbix_api_user }}"
+    login_password: "{{ zabbix_api_pass }}"
+    template_name: Template App APT Updates
+    template_json: "{{ lookup('file', 'Template_App_APT_Updates.json') }}"
+    template_groups:
+    - Templates/Operating Systems
+    state: present
+
+# Create a new template from a json config definition
+- name: Import Zabbix json template configuration
+  local_action:
+    module: zabbix_template
+    server_url: "{{ zabbix_url }}"
+    login_user: "{{ zabbix_api_user }}"
+    login_password: "{{ zabbix_api_pass }}"
+    template_name: Template App Needrestart
+    template_json: "{{ lookup('file', 'Template_App_Needrestart.json') }}"
+    template_groups:
+    - Templates/Operating Systems
+    state: present
+
+...

@@ -1,0 +1,11 @@
+---
+
+# Zabbix API stuff
+zabbix_url: "http://zabbix.example.com"
+zabbix_api_user: Admin
+zabbix_api_pass: zabbix
+
+zabbix_apt_templates_is_server: False
+zabbix_apt_templates_is_agent: False
+
+...

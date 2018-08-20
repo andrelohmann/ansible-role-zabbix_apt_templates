@@ -1,0 +1,11 @@
+---
+
+- name: Install Templates to server
+  include: server.yml
+  when: zabbix_apt_templates_is_server
+
+- name: Install UserParameter to agent
+  include: agent.yml
+  when: zabbix_apt_templates_is_agent
+
+...

@@ -1,0 +1,135 @@
+{
+    "zabbix_export": {
+        "date": "2018-08-20T16:36:58Z",
+        "groups": [
+            {
+                "name": "Templates"
+            }
+        ],
+        "templates": [
+            {
+                "applications": [
+                    {
+                        "name": "Needrestart"
+                    }
+                ],
+                "description": "",
+                "discovery_rules": [],
+                "groups": [
+                    {
+                        "name": "Templates"
+                    }
+                ],
+                "httptests": [],
+                "items": [
+                    {
+                        "allowed_hosts": "",
+                        "applications": [
+                            {
+                                "name": "Needrestart"
+                            }
+                        ],
+                        "authtype": "0",
+                        "delay": "14400",
+                        "description": "",
+                        "history": "90d",
+                        "inventory_link": "0",
+                        "ipmi_sensor": "",
+                        "jmx_endpoint": "",
+                        "key": "needrestart.kernel",
+                        "logtimefmt": "",
+                        "master_item": [],
+                        "name": "Kernel ABI update available",
+                        "params": "",
+                        "password": "",
+                        "port": "",
+                        "preprocessing": [],
+                        "privatekey": "",
+                        "publickey": "",
+                        "snmp_community": "",
+                        "snmp_oid": "",
+                        "snmpv3_authpassphrase": "",
+                        "snmpv3_authprotocol": "0",
+                        "snmpv3_contextname": "",
+                        "snmpv3_privpassphrase": "",
+                        "snmpv3_privprotocol": "0",
+                        "snmpv3_securitylevel": "0",
+                        "snmpv3_securityname": "",
+                        "status": "0",
+                        "trends": "365d",
+                        "type": "0",
+                        "units": "",
+                        "username": "",
+                        "value_type": "3",
+                        "valuemap": []
+                    },
+                    {
+                        "allowed_hosts": "",
+                        "applications": [
+                            {
+                                "name": "Needrestart"
+                            }
+                        ],
+                        "authtype": "0",
+                        "delay": "14400",
+                        "description": "",
+                        "history": "90d",
+                        "inventory_link": "0",
+                        "ipmi_sensor": "",
+                        "jmx_endpoint": "",
+                        "key": "needrestart.libs",
+                        "logtimefmt": "",
+                        "master_item": [],
+                        "name": "Services using old libs",
+                        "params": "",
+                        "password": "",
+                        "port": "",
+                        "preprocessing": [],
+                        "privatekey": "",
+                        "publickey": "",
+                        "snmp_community": "",
+                        "snmp_oid": "",
+                        "snmpv3_authpassphrase": "",
+                        "snmpv3_authprotocol": "0",
+                        "snmpv3_contextname": "",
+                        "snmpv3_privpassphrase": "",
+                        "snmpv3_privprotocol": "0",
+                        "snmpv3_securitylevel": "0",
+                        "snmpv3_securityname": "",
+                        "status": "0",
+                        "trends": "365d",
+                        "type": "0",
+                        "units": "",
+                        "username": "",
+                        "value_type": "3",
+                        "valuemap": []
+                    }
+                ],
+                "macros": [],
+                "name": "Template App Needrestart",
+                "screens": [],
+                "template": "Template App Needrestart",
+                "templates": []
+            }
+        ],
+        "triggers": [
+            {
+                "correlation_mode": "0",
+                "correlation_tag": "",
+                "dependencies": [],
+                "description": "",
+                "expression": "{Template App Needrestart:needrestart.kernel.last()}<>1 or {Template App Needrestart:needrestart.libs.last()}>0",
+                "manual_close": "0",
+                "name": "Server needs maintainance",
+                "priority": "1",
+                "recovery_expression": "",
+                "recovery_mode": "0",
+                "status": "0",
+                "tags": [],
+                "type": "0",
+                "url": ""
+            }
+        ],
+        "version": "3.4"
+    }
+}
