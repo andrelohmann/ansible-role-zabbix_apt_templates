@@ -27,6 +27,7 @@
     template_groups:
     - Templates/Operating Systems
     state: present
+  become: no
 
 # Create a new template from a json config definition
 - name: Import Zabbix json template configuration
@@ -40,5 +41,6 @@
     template_groups:
     - Templates/Operating Systems
     state: present
+  become: no
 
 ...
